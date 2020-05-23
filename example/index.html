@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kline-demo</title>
+  <link rel="stylesheet" href="./css/kline.css">
+  <style>
+    #chart_container {
+      margin: 0 auto;
+      margin-top: 50px;
+      width: 1000px;
+      height: 500px;
+    }
+
+    fieldset {
+      margin: 0 auto;
+      margin-top: 40px;
+      width: 1000px;
+    }
+  </style>
+</head>
+
+<body>
+  <fieldset>
+    <legend>Operation Area</legend>
+    <button onclick="switchTheme()">切换主题</button>
+    <button onclick="switchChartType()">切换图表类型</button>
+  </fieldset>
+  <div id="chart_container"></div>
+</body>
+<script src="./js/kline.min.js"></script>
+<script src="./js/pako.min.js"></script>
+<script src="./js/ws-deedfeeds.js"></script>
+<script>
+
+  function initOnReady() {
+    VyKline.bootstrap({
+      container: document.getElementById('chart_container'), // 容器
+      deedfeeds: window.deedfeeds, // 数据反馈对象
+      showIntervalToolbar: true,
+      defaultInterval: 'm1',
+      interval: ['m1', 'm5', 'm15', 'm30'],
+      // theme: 'dark',
+      customChart: {
+        init_offset_x: 250,
+        default_rise_color: '#26a69a',
+        default_fall_color: '#ef5350',
+      },
+      // customLoadingEl: customLoading,
+      onTimeIntervalChanged: interval => {
+        console.log("interval", interval);
+      }
+    })
+  }
+  let type = 'KLINE'
+  let mytheme = 'light'
+  function switchTheme() {
+    mytheme = mytheme === 'light' ? 'dark' : 'light'
+    vyChart.switchTheme(mytheme)
+  }
+
+  function switchChartType() {
+    type = type === 'KLINE' ? 'EMPTY_KLINE' : 'KLINE'
+    vyChart.switchChartType(type)
+  }
+  window.addEventListener('DOMContentLoaded', initOnReady, false);
+</script>
+
+</html>
