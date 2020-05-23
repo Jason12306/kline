@@ -71,13 +71,13 @@ export default {
     copy({
       targets: [
         {
-          src: 'README.md',
-          dest: `package`
-        },
-        {
           src: 'package.json',
           dest: `package`
         },
+        {
+          src: 'README.md',
+          dest: `package`
+        }
       ]
     })
   ]
