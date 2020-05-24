@@ -34,17 +34,47 @@
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
   }
 
-  var _typeof_1 = createCommonjsModule(function (module) {
-  function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+  var setPrototypeOf = createCommonjsModule(function (module) {
+  function _setPrototypeOf(o, p) {
+    module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
 
+    return _setPrototypeOf(o, p);
+  }
+
+  module.exports = _setPrototypeOf;
+  });
+
+  function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) setPrototypeOf(subClass, superClass);
+  }
+
+  var inherits = _inherits;
+
+  var _typeof_1 = createCommonjsModule(function (module) {
   function _typeof(obj) {
-    if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
+    "@babel/helpers - typeof";
+
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
       module.exports = _typeof = function _typeof(obj) {
-        return _typeof2(obj);
+        return typeof obj;
       };
     } else {
       module.exports = _typeof = function _typeof(obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
       };
     }
 
@@ -84,36 +114,6 @@
 
   module.exports = _getPrototypeOf;
   });
-
-  var setPrototypeOf = createCommonjsModule(function (module) {
-  function _setPrototypeOf(o, p) {
-    module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-      o.__proto__ = p;
-      return o;
-    };
-
-    return _setPrototypeOf(o, p);
-  }
-
-  module.exports = _setPrototypeOf;
-  });
-
-  function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-      throw new TypeError("Super expression must either be null or a function");
-    }
-
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-      constructor: {
-        value: subClass,
-        writable: true,
-        configurable: true
-      }
-    });
-    if (superClass) setPrototypeOf(subClass, superClass);
-  }
-
-  var inherits = _inherits;
 
   /**
    * 节点操作 js
@@ -184,9 +184,7 @@
     }
   };
 
-  var TimeFormater =
-  /*#__PURE__*/
-  function () {
+  var TimeFormater = /*#__PURE__*/function () {
     function TimeFormater() {
       classCallCheck(this, TimeFormater);
     }
@@ -258,9 +256,7 @@
 
   var tank = {};
 
-  var Watcher =
-  /*#__PURE__*/
-  function () {
+  var Watcher = /*#__PURE__*/function () {
     function Watcher() {
       classCallCheck(this, Watcher);
     }
@@ -291,9 +287,7 @@
   /* 
     简单的数据管理 store
   */
-  var Store =
-  /*#__PURE__*/
-  function () {
+  var Store = /*#__PURE__*/function () {
     function Store(_ref) {
       var _this2 = this;
 
@@ -558,9 +552,7 @@
 
   var baseChartConfigInstcance = new ChartBaseConfig();
 
-  var _default =
-  /*#__PURE__*/
-  function () {
+  var _default = /*#__PURE__*/function () {
     function _default() {
       classCallCheck(this, _default);
 
@@ -619,15 +611,19 @@
     return _default;
   }();
 
-  var Kline =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var Kline = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(Kline, _ChartBaseConfig);
+
+    var _super = _createSuper(Kline);
 
     function Kline() {
       classCallCheck(this, Kline);
 
-      return possibleConstructorReturn(this, getPrototypeOf(Kline).apply(this, arguments));
+      return _super.apply(this, arguments);
     }
 
     createClass(Kline, [{
@@ -676,15 +672,19 @@
 
   var Kline$1 = new Kline();
 
-  var RealTime =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper$1(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$1(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$1() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var RealTime = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(RealTime, _ChartBaseConfig);
+
+    var _super = _createSuper$1(RealTime);
 
     function RealTime() {
       classCallCheck(this, RealTime);
 
-      return possibleConstructorReturn(this, getPrototypeOf(RealTime).apply(this, arguments));
+      return _super.apply(this, arguments);
     }
 
     createClass(RealTime, [{
@@ -745,15 +745,19 @@
 
   var RealTime$1 = new RealTime();
 
-  var EmptyKline =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$2(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var EmptyKline = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(EmptyKline, _ChartBaseConfig);
+
+    var _super = _createSuper$2(EmptyKline);
 
     function EmptyKline() {
       classCallCheck(this, EmptyKline);
 
-      return possibleConstructorReturn(this, getPrototypeOf(EmptyKline).apply(this, arguments));
+      return _super.apply(this, arguments);
     }
 
     createClass(EmptyKline, [{
@@ -835,12 +839,16 @@
 
   function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-  var MALine =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper$3(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$3(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$3() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var MALine = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(MALine, _ChartBaseConfig);
+
+    var _super = _createSuper$3(MALine);
 
     function MALine(_ref) {
       var _this;
@@ -850,7 +858,7 @@
 
       classCallCheck(this, MALine);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(MALine).call(this));
+      _this = _super.call(this);
       _this._ctx = _ctx;
       _this.range = range;
       return _this;
@@ -876,7 +884,7 @@
           if (arr.length - _this2.range - index < 0) return;
           rangData = arr.slice(index, index + _this2.range);
 
-          var o = _objectSpread({}, item, {
+          var o = _objectSpread(_objectSpread({}, item), {}, {
             avgClose: 0
           });
 
@@ -939,17 +947,21 @@
     return MALine;
   }(_default);
 
-  var KlineCanvas =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper$4(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$4(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$4() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var KlineCanvas = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(KlineCanvas, _ChartBaseConfig);
+
+    var _super = _createSuper$4(KlineCanvas);
 
     function KlineCanvas() {
       var _this;
 
       classCallCheck(this, KlineCanvas);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(KlineCanvas).call(this));
+      _this = _super.call(this);
       _this.c = _this.$Od.$createElement('canvas');
       _this.c.width = _this._handleDevicePixelRatio({
         value: _this.$decimal('-', _this.$store.state.el.offsetWidth, _this.$store.state.y_axis_width)
@@ -1185,45 +1197,66 @@
     return KlineCanvas;
   }(_default);
 
-  function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-        arr2[i] = arr[i];
-      }
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
 
-      return arr2;
+    for (var i = 0, arr2 = new Array(len); i < len; i++) {
+      arr2[i] = arr[i];
     }
+
+    return arr2;
+  }
+
+  var arrayLikeToArray = _arrayLikeToArray;
+
+  function _arrayWithoutHoles(arr) {
+    if (Array.isArray(arr)) return arrayLikeToArray(arr);
   }
 
   var arrayWithoutHoles = _arrayWithoutHoles;
 
   function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+    if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
   }
 
   var iterableToArray = _iterableToArray;
 
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+  }
+
+  var unsupportedIterableToArray = _unsupportedIterableToArray;
+
   function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance");
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
   var nonIterableSpread = _nonIterableSpread;
 
   function _toConsumableArray(arr) {
-    return arrayWithoutHoles(arr) || iterableToArray(arr) || nonIterableSpread();
+    return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
   }
 
   var toConsumableArray = _toConsumableArray;
 
-  var DrawView =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper$5(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$5(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$5() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var DrawView = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(DrawView, _ChartBaseConfig);
+
+    var _super = _createSuper$5(DrawView);
 
     function DrawView() {
       classCallCheck(this, DrawView);
 
-      return possibleConstructorReturn(this, getPrototypeOf(DrawView).apply(this, arguments));
+      return _super.apply(this, arguments);
     }
 
     createClass(DrawView, [{
@@ -1313,17 +1346,21 @@
     return DrawView;
   }(_default);
 
-  var KlineMaskCanvas =
-  /*#__PURE__*/
-  function (_DrawView) {
+  function _createSuper$6(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$6(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$6() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var KlineMaskCanvas = /*#__PURE__*/function (_DrawView) {
     inherits(KlineMaskCanvas, _DrawView);
+
+    var _super = _createSuper$6(KlineMaskCanvas);
 
     function KlineMaskCanvas() {
       var _this;
 
       classCallCheck(this, KlineMaskCanvas);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(KlineMaskCanvas).call(this));
+      _this = _super.call(this);
       _this.mousemoveThrottleTimer = null; // 定时器
 
       _this.mousewheelThrottleTimer = null; // 定时器
@@ -1724,17 +1761,21 @@
     return KlineMaskCanvas;
   }(DrawView);
 
-  var YAxisCanvas =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper$7(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$7(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$7() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var YAxisCanvas = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(YAxisCanvas, _ChartBaseConfig);
+
+    var _super = _createSuper$7(YAxisCanvas);
 
     function YAxisCanvas() {
       var _this;
 
       classCallCheck(this, YAxisCanvas);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(YAxisCanvas).call(this));
+      _this = _super.call(this);
       var _this$$store$state = _this.$store.state,
           el = _this$$store$state.el,
           x_axis_height = _this$$store$state.x_axis_height,
@@ -1858,6 +1899,9 @@
     return YAxisCanvas;
   }(_default);
 
+  function _createSuper$8(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$8(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$8() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
   var timeStrategies = {
     // 分钟 每隔 10 柱
     m: function m(item) {
@@ -1897,17 +1941,17 @@
     }
   };
 
-  var XAxisCanvas =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  var XAxisCanvas = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(XAxisCanvas, _ChartBaseConfig);
+
+    var _super = _createSuper$8(XAxisCanvas);
 
     function XAxisCanvas() {
       var _this;
 
       classCallCheck(this, XAxisCanvas);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(XAxisCanvas).call(this));
+      _this = _super.call(this);
       var _this$$store$state = _this.$store.state,
           el = _this$$store$state.el,
           x_axis_height = _this$$store$state.x_axis_height,
@@ -2023,17 +2067,21 @@
     return XAxisCanvas;
   }(_default);
 
-  var Volume =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper$9(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$9(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$9() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var Volume = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(Volume, _ChartBaseConfig);
+
+    var _super = _createSuper$9(Volume);
 
     function Volume() {
       var _this;
 
       classCallCheck(this, Volume);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(Volume).call(this));
+      _this = _super.call(this);
       var _this$$store$state = _this.$store.state,
           el = _this$$store$state.el,
           x_axis_height = _this$$store$state.x_axis_height,
@@ -2171,9 +2219,11 @@
     return Volume;
   }(_default);
 
-  var GenerateSpan =
-  /*#__PURE__*/
-  function () {
+  function _createSuper$a(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$a(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$a() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var GenerateSpan = /*#__PURE__*/function () {
     function GenerateSpan($Od, _ref) {
       var _ref$data = _ref.data,
           data = _ref$data === void 0 ? 0 : _ref$data,
@@ -2199,17 +2249,17 @@
     return GenerateSpan;
   }();
 
-  var Dashboard =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  var Dashboard = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(Dashboard, _ChartBaseConfig);
+
+    var _super = _createSuper$a(Dashboard);
 
     function Dashboard() {
       var _this;
 
       classCallCheck(this, Dashboard);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(Dashboard).call(this));
+      _this = _super.call(this);
       _this.dashboardWrapper = _this.$Od.$createElement('div');
 
       _this.$Od.$setElementAttribute(_this.dashboardWrapper, 'id', 'dashboard-wrapper');
@@ -2352,19 +2402,22 @@
     return Dashboard;
   }(_default);
 
+  function _createSuper$b(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$b(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$b() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
   var regK = /0{3}$/;
 
-  var VolYAxis =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  var VolYAxis = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(VolYAxis, _ChartBaseConfig);
+
+    var _super = _createSuper$b(VolYAxis);
 
     function VolYAxis() {
       var _this;
 
       classCallCheck(this, VolYAxis);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(VolYAxis).call(this));
+      _this = _super.call(this);
       var _this$$store$state = _this.$store.state,
           el = _this$$store$state.el,
           x_axis_height = _this$$store$state.x_axis_height,
@@ -2539,17 +2592,21 @@
     }
   };
 
-  var IntervalToolBar =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper$c(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$c(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$c() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var IntervalToolBar = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(IntervalToolBar, _ChartBaseConfig);
+
+    var _super = _createSuper$c(IntervalToolBar);
 
     function IntervalToolBar() {
       var _this;
 
       classCallCheck(this, IntervalToolBar);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(IntervalToolBar).call(this));
+      _this = _super.call(this);
       _this.c = _this.$Od.$createElement('div');
       _this.throttleTimer = null;
       _this.cacheChartType = _this.$store.state.chart_type;
@@ -2696,17 +2753,21 @@
     return IntervalToolBar;
   }(_default);
 
-  var BottomRightBlock =
-  /*#__PURE__*/
-  function (_ChartBaseConfig) {
+  function _createSuper$d(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$d(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$d() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+  var BottomRightBlock = /*#__PURE__*/function (_ChartBaseConfig) {
     inherits(BottomRightBlock, _ChartBaseConfig);
+
+    var _super = _createSuper$d(BottomRightBlock);
 
     function BottomRightBlock() {
       var _this;
 
       classCallCheck(this, BottomRightBlock);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(BottomRightBlock).call(this));
+      _this = _super.call(this);
       _this.c = _this.$Od.$createElement('canvas');
       _this.c.width = _this._handleDevicePixelRatio({
         value: _this.$store.state.y_axis_width
@@ -2768,6 +2829,10 @@
     return BottomRightBlock;
   }(_default);
 
+  function _createSuper$e(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$e(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+  function _isNativeReflectConstruct$e() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
   function VyChartNode($Od, container, state) {
     var vyChart = $Od.$createElement('div');
     $Od.$setElementAttribute(vyChart, 'id', 'vy-chart');
@@ -2807,10 +2872,10 @@
    */
 
 
-  var Chart =
-  /*#__PURE__*/
-  function (_DrawView) {
+  var Chart = /*#__PURE__*/function (_DrawView) {
     inherits(Chart, _DrawView);
+
+    var _super = _createSuper$e(Chart);
 
     /* chart_container */
     function Chart() {
@@ -2818,7 +2883,7 @@
 
       classCallCheck(this, Chart);
 
-      _this = possibleConstructorReturn(this, getPrototypeOf(Chart).call(this));
+      _this = _super.call(this);
       _this.customChart = null;
       return _this;
     } // 启动图表

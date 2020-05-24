@@ -5,87 +5,91 @@
 
 ![@vanyi/kline demo](https://vanyi0924.github.io/kline/screenshot/demo.gif)
 
-## 安装
+English | [简体中文](./README-zh.md)
+
+## Installation
 `npm i @vanyi/kline`
 
-## 使用
-1. 浏览器：`path/to/kline.min.js` 和 `path/to/kline.min.css`  
+## Usage
+1. Browser:
+		`<link rel="stylesheet" href="path/to/kline.min.css">`
+		`<script src="path/to/kline.min.js"></script>`
 
-	 node：`import VyKline from '@vanyi/kline'; import '@vanyi/kline/lib/kline.min.css'`
-2. `dom` 内容加载完成后， 启动 `VyKline.bootstrap(options)`； 
-3. `options` 配置：
-	- `container` 图表挂载点；
-	- `deedfeeds` 数据反馈对象 `type: Object`，详细配置见下文；
-	- `defaultInterval` 默认时间粒度 `type: String`；
-	- `interval` 时间粒度集合 `type: Array`；
-	- `theme` 主题  `type: String`, 可选 `light | dark`， 默认：`light`；
-	- `customChart` 自定义图表配置 `type: Object`，详细配置见下文；
-	- `customLoadingEl` `type: HTMLElement`, 可选 自定义`loading`；
-	- `chartType` `type: String`， 可选 `KLINE | EMPTY_KLINE`，默认 `KLINE`；
-	- `onTimeIntervalChanged` `type: function`，可选 时间粒度切换时触发该事件，参数为时间粒度。
+	 Module:
+	 	`import VyKline from '@vanyi/kline';` 
+		`import '@vanyi/kline/lib/kline.min.css;'`
+2.  After dom is loaded, run `VyKline.bootstrap(options)`,`option: Object`; 
+3. `options`:
+	- `container` Chart mount point `type: HTMLElement`;
+	- `deedfeeds` Data feedback object `type: Object`,See below for detailed configuration;
+	- `defaultInterval` Default time granularity `type: String`,See below for detailed configuration;
+	- `interval` Time granularity collection `type: Array`,defaultInterval's collection;
+	- `theme` theme `type: String`, Optional `light | dark`, default:`light`;
+	- `customChart` Custom chart configuration `type: Object`,See below for detailed configuration;
+	- `customLoadingEl`  Custom loading node `type: HTMLElement`, Optional,The style needs to be set to absolute positioning, width and height 100%;
+	- `chartType` Chart type `type: String`, Optional `KLINE | EMPTY_KLINE`,default `KLINE`;
+	- `showIntervalToolbar` Whether to display the time granularity bar `type: Boolean` Optional,default `true`;
+	- `onTimeIntervalChanged` This event is triggered when the time granularity is switched,The parameter is time granularity `type: Function`,Optional.
 
-## 配置
- 1. `deedfeeds` 数据反馈对象，为图表输入数据。  
- 	#### methods
- 	- `setHistoryData({ interval, setHistoryData, subscribeData })` 初始化历史数据 
+## Detailed Configuration
+ 1. `deedfeeds` Data feedback object,enter data for the chart.  
+ 	### methods
+ 	- `setHistoryData({ interval, setHistoryData, subscribeData })` Set historical data 
 	
- 		>`interval`当前时间粒度  
- 		>`setHistoryData` 回调函数，参数为历史数据 `Array`，标准数据对象如下： 
+ 		>`interval`Current time granularity  
+ 		>`setHistoryData` Callback,Parameters are historical data `Array`,Standard data objects are as follows: 
 		
  			{
-				time: null, // 时间
-				open: null, // 开
-				high: null, // 高
-				low: null, // 低
-				close: null, // 收
-				volume: null // 交易量
+				time: null, // 1590314400000
+				open: null,
+				high: null,
+				low: null,
+				close: null,
+				volume: null // Trading volume
 			}	
- 		> `getRealTimeData`  回调函数，参数为标准数据对象，同上。
+ 		> `getRealTimeData`  Callback,Parameters are standard data objects,Same as above.
 		
- 	- `intervalChanged({ interval, setHistoryData, subscribeData })` 时间粒度切换，切换时自动执行，注：此处应该先取消订阅再获取历史数据
+ 	- `intervalChanged({ interval, setHistoryData, subscribeData })` Triggered when time granularity is switched,Note: Here you should unsubscribe before getting historical data
 	
- 	 	>`interval`当前时间粒度  
- 		>`setHistoryData` 回调函数，参数为历史数据 `Array`
- 		>`subscribeData` 回调函数，参数为当前数据对象 `Object`
+ 	 	>`interval`Current time granularity  
+ 		>`setHistoryData` Callback,Parameters are historical data `Array`  
+ 		>`subscribeData` Callback,The parameter is the current data object `Object`
 
-2. `defaultInterval` 格式为： `'m1','h1', 'd1', 'w1', 'M1'` 分别对应 `分，时，天，周，月`  
-3. `customChart` 图表自定义配置对象：
+2. `defaultInterval` Default time granularity,format: `'m1','h1', 'd1', 'w1', 'M1'` Corresponding to `minute, hour, day, week, month`  
+3. `customChart` Chart custom configuration object:
 	
 		{
-			default_rise_color: '#53b987', // 涨 绿
-			default_fall_color: '#eb4d5c', // 跌 红
-			init_offset_x: 100, // 初始图表偏移量
-			volume_height: 100, // 交易量 canvas 高度
-			interval_tool_bar: '30px', // 时间粒度 默认高度
+			default_rise_color: '#53b987', // rise
+			default_fall_color: '#eb4d5c', // fall
+			init_offset_x: 100, // Initial chart offset
+			volume_height: 100, // Trading volume height
+			interval_tool_bar: '30px', // Time granularity bar default height
 		}  
-	
-4. `showIntervalToolbar` `boolean` 是否显示时间粒度
 
-## 实例方法
-1. `switchChartType` 切换图表类型，type：String 可选值：`KLINE` | `EMPTY_KLINE`
-2. `switchTheme` 切换主题，type：String 可选值：`light` | `dark`
+## Instance Method
+1. `switchChartType` Switch chart type,`type:String` Optional value:`KLINE` | `EMPTY_KLINE`
+2. `switchTheme` Switch theme,`type:String` Optional value:`light` | `dark`
 
-## 兼容性
-主流浏览器
+## Compatibility
+Mainstream browser
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)  
 Copyright (c) 2020 Vanyi0924
 
-## 预览地址
+## Preview Address
 [https://vanyi0924.github.io/kline/](https://vanyi0924.github.io/kline/)  
 
-## 示例代码
+## Examples
 [Code](./example)  
 
-## 说明
-图表完全由数据驱动，只关注数据的传入，所以只要接入符合标准的数据即可。[实例](./example)中为`websocket`方式，
-感谢[火币网](https://www.huobi.br.com/zh-cn/)提供的数据接口。
+## Explanation
+The chart is completely driven by data, and only focuses on the introduction of data, so as long as you access the data that meets the standards.The [example](./example) uses the `websocket` way,Thanks[huobi](https://www.huobi.br.com/zh-cn/)for the data interface provided.
 
-## 关于
-这是一个凭借个人兴趣、爱好和责任心在开发维护的项目，如果能给你带来一丝帮助，欢迎star。社区的支持是我前进的动力，爱你萌（づ￣3￣）づ╭❤～！
+## About
+This is a project developed and maintained by virtue of personal interests, hobbies and sense of responsibility,If it can bring you a little help,please star to let more people know it,Thank you!Community support is my motivation.（づ￣3￣）づ╭❤～
 
-## 开发中  
-- [ ] x，y轴刻度优化
-- [ ] 国际化
-- [ ] 自定义主题（如果急需自定义可到`/src/config/theme`中修改或新增）
+## Developing  
+- [ ] x,y axis optimization
+- [ ] internationalization
+- [ ] custom theme(If you need customization urgently, you can modify or add it in `/src/config/theme`)

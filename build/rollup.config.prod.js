@@ -75,6 +75,10 @@ export default {
           dest: `package`
         },
         {
+          src: 'README-zh.md',
+          dest: `package`
+        },
+        {
           src: 'README.md',
           dest: `package`
         }
