@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@vanyi/kline)](https://www.npmjs.com/package/@vanyi/kline)
 [![License](https://img.shields.io/npm/l/@vanyi/kline)](https://www.npmjs.com/package/@vanyi/kline)
 
-![@vanyi/kline demo](./screenshot/demo.gif)
+![@vanyi/kline demo](https://vanyi0924.github.io/kline/screenshot/demo.gif)
 
 ## 安装
 `npm i @vanyi/kline`
