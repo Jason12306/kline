@@ -1,12 +1,17 @@
-## kline.js
+## @vanyi/kline.js
 
 [![npm version](https://img.shields.io/npm/v/@vanyi/kline)](https://www.npmjs.com/package/@vanyi/kline)
+[![License](https://img.shields.io/npm/l/@vanyi/kline)](https://www.npmjs.com/package/@vanyi/kline)
+
+![@vanyi/kline demo](./screenshot/demo.gif)
 
 ## 安装
 `npm i @vanyi/kline`
 
 ## 使用
-1. 引入 `path/to/kline.min.js` 和 `path/to/kline.min.css` 或 `import VyKline from '@vanyi/kline'`；
+1. 浏览器：`path/to/kline.min.js` 和 `path/to/kline.min.css`  
+
+	 node：`import VyKline from '@vanyi/kline'; import '@vanyi/kline/lib/kline.min.css'`
 2. `dom` 内容加载完成后， 启动 `VyKline.bootstrap(options)`； 
 3. `options` 配置：
 	- `container` 图表挂载点；
@@ -17,9 +22,9 @@
 	- `customChart` 自定义图表配置 `type: Object`，详细配置见下文；
 	- `customLoadingEl` `type: HTMLElement`, 可选 自定义`loading`；
 	- `chartType` `type: String`， 可选 `KLINE | EMPTY_KLINE`，默认 `KLINE`；
-	- 事件：`onTimeIntervalChanged` 可选。时间粒度切换时触发，参数为时间粒度。
+	- `onTimeIntervalChanged` `type: function`，可选 时间粒度切换时触发该事件，参数为时间粒度。
 
-## 参数
+## 配置
  1. `deedfeeds` 数据反馈对象，为图表输入数据。  
  	#### methods
  	- `setHistoryData({ interval, setHistoryData, subscribeData })` 初始化历史数据 
@@ -57,9 +62,8 @@
 4. `showIntervalToolbar` `boolean` 是否显示时间粒度
 
 ## 实例方法
-1. `switchChartType` 切换图表类型，可选值：`KLINE` | `EMPTY_KLINE`
-
-2. `switchTheme` 切换主题，可选值：`light` | `dark`
+1. `switchChartType` 切换图表类型，type：String 可选值：`KLINE` | `EMPTY_KLINE`
+2. `switchTheme` 切换主题，type：String 可选值：`light` | `dark`
 
 ## 兼容性
 主流浏览器
@@ -68,13 +72,20 @@
 [MIT](https://opensource.org/licenses/MIT)  
 Copyright (c) 2020 Vanyi0924
 
-## 演示地址
+## 预览地址
 [https://vanyi0924.github.io/kline/](https://vanyi0924.github.io/kline/)  
 
-## 参考
+## 示例代码
 [Code](./example)  
+
+## 说明
+图表完全由数据驱动，只关注数据的传入，所以只要接入符合标准的数据即可。[实例](./example)中为`websocket`方式，
+感谢[火币网](https://www.huobi.br.com/zh-cn/)提供的数据接口。
+
+## 关于
+这是一个凭借个人兴趣、爱好和责任心在开发维护的项目，如果能给你带来一丝帮助，欢迎star。社区的支持是我前进的动力，爱你萌（づ￣3￣）づ╭❤～！
 
 ## 开发中  
 - [ ] x，y轴刻度优化
 - [ ] 国际化
-- [ ] 自定义主题
+- [ ] 自定义主题（如果急需自定义可到`/src/config/theme`中修改或新增）
