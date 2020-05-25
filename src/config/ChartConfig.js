@@ -1,9 +1,10 @@
 import CONSTANTS from './CONSTANTS'
 
-let devicePixelRatio = window.devicePixelRatio || 1
+
+const devicePixelRatio = window.devicePixelRatio || 1
 
 // 可自定配置的选项
-let CAN_CUSTOM_CONFIG = {
+const CAN_CUSTOM_CONFIG = {
   scale_step: 0.2, // 缩放step
   max_scale: 6, // 放大最大值
   min_scale: 1, // 缩小最小值
@@ -29,7 +30,7 @@ let CAN_CUSTOM_CONFIG = {
 }
 
 // 默认配置
-let DEFAULT_CONFIG = {
+const DEFAULT_CONFIG = {
   user_config: null, // 用户传入的配置
   el: null, // 挂载节点 真实节点
   loadingNode: null,// loading节点
@@ -69,7 +70,8 @@ let DEFAULT_CONFIG = {
       lineColor: '#95a4c7'
     }
   ],
-  chart_type: CONSTANTS.CHART_TYPE.KLINE // 图表类型 default: kline
+  chart_type: CONSTANTS.CHART_TYPE.KLINE, // 图表类型 default: kline
+  language: {} // 语言
 }
 
 export { CAN_CUSTOM_CONFIG, DEFAULT_CONFIG }

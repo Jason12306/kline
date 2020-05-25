@@ -29,6 +29,7 @@ English | [简体中文](./README-zh.md)
 	- `customLoadingEl`  Custom loading node `type: HTMLElement`, Optional,The style needs to be set to absolute positioning, width and height 100%;
 	- `chartType` Chart type `type: String`, Optional `KLINE | EMPTY_KLINE`,default `KLINE`;
 	- `showIntervalToolbar` Whether to display the time granularity bar `type: Boolean` Optional,default `true`;
+	- `lang` Language `type: String`, Optional `zhCN | enUS`, default `zhCN`;
 	- `onTimeIntervalChanged` This event is triggered when the time granularity is switched,The parameter is time granularity `type: Function`,Optional.
 
 ## Detailed Configuration
@@ -67,8 +68,9 @@ English | [简体中文](./README-zh.md)
 		}  
 
 ## Instance Method
-1. `switchChartType` Switch chart type,`type:String` Optional value:`KLINE` | `EMPTY_KLINE`
-2. `switchTheme` Switch theme,`type:String` Optional value:`light` | `dark`
+1. `switchChartType` Switch chart type,`paramType: String` Optional value:`KLINE` | `EMPTY_KLINE`
+2. `switchTheme` Switch theme,`paramType: String` Optional value:`light` | `dark`
+3. `switchLang` Switch language,`paramType: String` Optional value:`zhCN` | `enUS`
 
 ## Compatibility
 Mainstream browser
@@ -91,5 +93,5 @@ This is a project developed and maintained by virtue of personal interests, hobb
 
 ## Developing  
 - [ ] x,y axis optimization
-- [ ] internationalization
+- [x] internationalization
 - [ ] custom theme(If you need customization urgently, you can modify or add it in `/src/config/theme`)

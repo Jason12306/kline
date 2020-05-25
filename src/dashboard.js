@@ -32,20 +32,22 @@ class Dashboard extends ChartBaseConfig {
     this.$Od.$setElementAttribute(this.spanWrapper, 'id', 'span-wrapper')
     this.dashboardWrapper.appendChild(this.spanWrapper)
 
+    const { language } = this.$store.state
+
     this.openSpan = new GenerateSpan(this.$Od, {
-      html: '开'
+      html: language.dashboard.open
     })
 
     this.highSpan = new GenerateSpan(this.$Od, {
-      html: '高'
+      html: language.dashboard.high
     })
 
     this.lowSpan = new GenerateSpan(this.$Od, {
-      html: '低'
+      html: language.dashboard.low
     })
 
     this.closeSpan = new GenerateSpan(this.$Od, {
-      html: '收'
+      html: language.dashboard.close
     })
 
     this.volSpan = new GenerateSpan(this.$Od, {
@@ -98,6 +100,14 @@ class Dashboard extends ChartBaseConfig {
       let { open, high, low, close, volume, MAClose5, MAClose10 } = kline_data[0]
       this.setSpanInnerText({ open, high, low, close, volume, MAClose5, MAClose10 })
     }
+  }
+
+  setDashboardLang() {
+    const { language } = this.$store.state
+    this.openSpan.html = language.dashboard.open
+    this.highSpan.html = language.dashboard.high
+    this.lowSpan.html = language.dashboard.low
+    this.closeSpan.html = language.dashboard.close
   }
 }
 

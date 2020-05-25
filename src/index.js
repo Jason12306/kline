@@ -15,6 +15,13 @@ import VolYAxis from './VolYAxis'
 import IntervalToolBar from './IntervalToolBar'
 import BottomRightBlock from './BottomRightBlock'
 import CONSTANTS from './config/CONSTANTS'
+import zhCN from './lang/zh-CN'
+import enUS from './lang/en-US'
+
+const languages = {
+  zhCN,
+  enUS
+}
 
 // 创建最外层节点
 function VyChartNode($Od, container, state) {
@@ -51,7 +58,6 @@ function loadingNode($Od, container, state) {
   loading.appendChild(spin)
   container.appendChild(loading)
   return loading
-
 }
 
 /**
@@ -66,12 +72,13 @@ class Chart extends DrawView {
   }
   // 启动图表
   bootstrap(userConfig) {
-    let { container, deedfeeds, defaultInterval, customChart, showIntervalToolbar = true, customLoadingEl } = userConfig
+    let { container, deedfeeds, defaultInterval, customChart, showIntervalToolbar = true, customLoadingEl, lang = 'zhCN' } = userConfig
     this.$store.commit('user_config', userConfig)
     this.customChart = customChart
     this._customChart(customChart)
     this.$store.commit('deedfeeds', deedfeeds)
     this.$store.commit('current_interval', defaultInterval)
+    this.$store.commit('language', languages[lang])
 
     /* init loading */
     if (customLoadingEl) {
@@ -196,9 +203,15 @@ class Chart extends DrawView {
     this.$watcher.emit(CONSTANTS.WATCHER_EVENT.THEME_SWITCHED, theme)
     this.initHistoryData(this.$store.state.all_kline_data)
   }
+
+  // 切换语言
+  switchLang(lang) {
+    this.$store.commit('language', languages[lang])
+    this.intervalToolBarInstance.setIntervalToolBarLang()
+    this.Dashboard.setDashboardLang()
+  }
 }
 let chartInstance = new Chart()
 chartInstance.$store.commit('chart_instance', chartInstance)
 
-window.vyChart = chartInstance
 export default chartInstance

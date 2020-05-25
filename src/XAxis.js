@@ -84,7 +84,7 @@ class XAxisCanvas extends ChartBaseConfig {
     kline_data.forEach((item, i) => {
       let { time, format } = timeStrategies[interval_type](item)  // 最小度量  分钟
       let timeRange = Math.trunc(interval_num * 10 / current_scale)
-      timeRange = Math.ceil(timeRange / 5) * 5
+      timeRange = Math.ceil(timeRange / 5) * 5 // 分钟间隔
       if (!(time % timeRange)) {
         let startX = this.$decimal('+', item.x, Math.ceil(column_width / 2))
         this._ctx.beginPath()

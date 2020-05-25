@@ -50,6 +50,7 @@ export default class {
     let mergedConfig = conf
     if (!mergedConfig.chartType) mergedConfig.chartType = CAN_CUSTOM_CONFIG.chart_type
     if (!THEME[theme]) theme = mergedConfig.theme || 'light'
+
     mergedConfig = Object.assign({}, { theme: THEME[theme] }, mergedConfig)
     for (let c in mergedConfig) {
       if (keys.includes(c)) {

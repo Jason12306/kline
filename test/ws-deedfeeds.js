@@ -1,6 +1,7 @@
 import pako from "pako";
 
-const wssUrl = "wss://api.hadax.com/ws"
+const wssUrl = "wss://api.huobiasia.vip/ws"
+// const wssUrl = "wss://api.hadax.com/ws"
 
 // 'm1','h1', 'd1', 'w1', 'M1'
 // 1min, 5min, 15min, 30min, 60min, 4hour, 1day, 1mon, 1week, 1year 
@@ -28,7 +29,7 @@ function formatPeriod(str) {
   }
 }
 
-const SYMBOL = 'bchusdt';
+const SYMBOL = 'btcusdt';
 
 // 固定为 300 条数据
 

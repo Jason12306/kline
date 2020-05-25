@@ -34,47 +34,17 @@
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
   }
 
-  var setPrototypeOf = createCommonjsModule(function (module) {
-  function _setPrototypeOf(o, p) {
-    module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-      o.__proto__ = p;
-      return o;
-    };
-
-    return _setPrototypeOf(o, p);
-  }
-
-  module.exports = _setPrototypeOf;
-  });
-
-  function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-      throw new TypeError("Super expression must either be null or a function");
-    }
-
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-      constructor: {
-        value: subClass,
-        writable: true,
-        configurable: true
-      }
-    });
-    if (superClass) setPrototypeOf(subClass, superClass);
-  }
-
-  var inherits = _inherits;
-
   var _typeof_1 = createCommonjsModule(function (module) {
-  function _typeof(obj) {
-    "@babel/helpers - typeof";
+  function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+  function _typeof(obj) {
+    if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
       module.exports = _typeof = function _typeof(obj) {
-        return typeof obj;
+        return _typeof2(obj);
       };
     } else {
       module.exports = _typeof = function _typeof(obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
       };
     }
 
@@ -114,6 +84,36 @@
 
   module.exports = _getPrototypeOf;
   });
+
+  var setPrototypeOf = createCommonjsModule(function (module) {
+  function _setPrototypeOf(o, p) {
+    module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+
+    return _setPrototypeOf(o, p);
+  }
+
+  module.exports = _setPrototypeOf;
+  });
+
+  function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) setPrototypeOf(subClass, superClass);
+  }
+
+  var inherits = _inherits;
 
   /**
    * 节点操作 js
@@ -184,7 +184,9 @@
     }
   };
 
-  var TimeFormater = /*#__PURE__*/function () {
+  var TimeFormater =
+  /*#__PURE__*/
+  function () {
     function TimeFormater() {
       classCallCheck(this, TimeFormater);
     }
@@ -256,7 +258,9 @@
 
   var tank = {};
 
-  var Watcher = /*#__PURE__*/function () {
+  var Watcher =
+  /*#__PURE__*/
+  function () {
     function Watcher() {
       classCallCheck(this, Watcher);
     }
@@ -287,7 +291,9 @@
   /* 
     简单的数据管理 store
   */
-  var Store = /*#__PURE__*/function () {
+  var Store =
+  /*#__PURE__*/
+  function () {
     function Store(_ref) {
       var _this2 = this;
 
@@ -519,7 +525,9 @@
       range: 10,
       lineColor: '#95a4c7'
     }],
-    chart_type: CONSTANTS.CHART_TYPE.KLINE // 图表类型 default: kline
+    chart_type: CONSTANTS.CHART_TYPE.KLINE,
+    // 图表类型 default: kline
+    language: {} // 语言
 
   };
 
@@ -552,7 +560,9 @@
 
   var baseChartConfigInstcance = new ChartBaseConfig();
 
-  var _default = /*#__PURE__*/function () {
+  var _default =
+  /*#__PURE__*/
+  function () {
     function _default() {
       classCallCheck(this, _default);
 
@@ -611,19 +621,15 @@
     return _default;
   }();
 
-  function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var Kline = /*#__PURE__*/function (_ChartBaseConfig) {
+  var Kline =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(Kline, _ChartBaseConfig);
-
-    var _super = _createSuper(Kline);
 
     function Kline() {
       classCallCheck(this, Kline);
 
-      return _super.apply(this, arguments);
+      return possibleConstructorReturn(this, getPrototypeOf(Kline).apply(this, arguments));
     }
 
     createClass(Kline, [{
@@ -672,19 +678,15 @@
 
   var Kline$1 = new Kline();
 
-  function _createSuper$1(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$1(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$1() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var RealTime = /*#__PURE__*/function (_ChartBaseConfig) {
+  var RealTime =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(RealTime, _ChartBaseConfig);
-
-    var _super = _createSuper$1(RealTime);
 
     function RealTime() {
       classCallCheck(this, RealTime);
 
-      return _super.apply(this, arguments);
+      return possibleConstructorReturn(this, getPrototypeOf(RealTime).apply(this, arguments));
     }
 
     createClass(RealTime, [{
@@ -745,19 +747,15 @@
 
   var RealTime$1 = new RealTime();
 
-  function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$2(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var EmptyKline = /*#__PURE__*/function (_ChartBaseConfig) {
+  var EmptyKline =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(EmptyKline, _ChartBaseConfig);
-
-    var _super = _createSuper$2(EmptyKline);
 
     function EmptyKline() {
       classCallCheck(this, EmptyKline);
 
-      return _super.apply(this, arguments);
+      return possibleConstructorReturn(this, getPrototypeOf(EmptyKline).apply(this, arguments));
     }
 
     createClass(EmptyKline, [{
@@ -839,16 +837,12 @@
 
   function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-  function _createSuper$3(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$3(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$3() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var MALine = /*#__PURE__*/function (_ChartBaseConfig) {
+  var MALine =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(MALine, _ChartBaseConfig);
-
-    var _super = _createSuper$3(MALine);
 
     function MALine(_ref) {
       var _this;
@@ -858,7 +852,7 @@
 
       classCallCheck(this, MALine);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(MALine).call(this));
       _this._ctx = _ctx;
       _this.range = range;
       return _this;
@@ -884,7 +878,7 @@
           if (arr.length - _this2.range - index < 0) return;
           rangData = arr.slice(index, index + _this2.range);
 
-          var o = _objectSpread(_objectSpread({}, item), {}, {
+          var o = _objectSpread({}, item, {
             avgClose: 0
           });
 
@@ -947,21 +941,17 @@
     return MALine;
   }(_default);
 
-  function _createSuper$4(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$4(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$4() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var KlineCanvas = /*#__PURE__*/function (_ChartBaseConfig) {
+  var KlineCanvas =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(KlineCanvas, _ChartBaseConfig);
-
-    var _super = _createSuper$4(KlineCanvas);
 
     function KlineCanvas() {
       var _this;
 
       classCallCheck(this, KlineCanvas);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(KlineCanvas).call(this));
       _this.c = _this.$Od.$createElement('canvas');
       _this.c.width = _this._handleDevicePixelRatio({
         value: _this.$decimal('-', _this.$store.state.el.offsetWidth, _this.$store.state.y_axis_width)
@@ -1197,66 +1187,45 @@
     return KlineCanvas;
   }(_default);
 
-  function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-
-    for (var i = 0, arr2 = new Array(len); i < len; i++) {
-      arr2[i] = arr[i];
-    }
-
-    return arr2;
-  }
-
-  var arrayLikeToArray = _arrayLikeToArray;
-
   function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) return arrayLikeToArray(arr);
+    if (Array.isArray(arr)) {
+      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+        arr2[i] = arr[i];
+      }
+
+      return arr2;
+    }
   }
 
   var arrayWithoutHoles = _arrayWithoutHoles;
 
   function _iterableToArray(iter) {
-    if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
   }
 
   var iterableToArray = _iterableToArray;
 
-  function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
-  }
-
-  var unsupportedIterableToArray = _unsupportedIterableToArray;
-
   function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    throw new TypeError("Invalid attempt to spread non-iterable instance");
   }
 
   var nonIterableSpread = _nonIterableSpread;
 
   function _toConsumableArray(arr) {
-    return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
+    return arrayWithoutHoles(arr) || iterableToArray(arr) || nonIterableSpread();
   }
 
   var toConsumableArray = _toConsumableArray;
 
-  function _createSuper$5(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$5(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$5() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var DrawView = /*#__PURE__*/function (_ChartBaseConfig) {
+  var DrawView =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(DrawView, _ChartBaseConfig);
-
-    var _super = _createSuper$5(DrawView);
 
     function DrawView() {
       classCallCheck(this, DrawView);
 
-      return _super.apply(this, arguments);
+      return possibleConstructorReturn(this, getPrototypeOf(DrawView).apply(this, arguments));
     }
 
     createClass(DrawView, [{
@@ -1346,21 +1315,17 @@
     return DrawView;
   }(_default);
 
-  function _createSuper$6(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$6(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$6() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var KlineMaskCanvas = /*#__PURE__*/function (_DrawView) {
+  var KlineMaskCanvas =
+  /*#__PURE__*/
+  function (_DrawView) {
     inherits(KlineMaskCanvas, _DrawView);
-
-    var _super = _createSuper$6(KlineMaskCanvas);
 
     function KlineMaskCanvas() {
       var _this;
 
       classCallCheck(this, KlineMaskCanvas);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(KlineMaskCanvas).call(this));
       _this.mousemoveThrottleTimer = null; // 定时器
 
       _this.mousewheelThrottleTimer = null; // 定时器
@@ -1761,21 +1726,17 @@
     return KlineMaskCanvas;
   }(DrawView);
 
-  function _createSuper$7(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$7(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$7() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var YAxisCanvas = /*#__PURE__*/function (_ChartBaseConfig) {
+  var YAxisCanvas =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(YAxisCanvas, _ChartBaseConfig);
-
-    var _super = _createSuper$7(YAxisCanvas);
 
     function YAxisCanvas() {
       var _this;
 
       classCallCheck(this, YAxisCanvas);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(YAxisCanvas).call(this));
       var _this$$store$state = _this.$store.state,
           el = _this$$store$state.el,
           x_axis_height = _this$$store$state.x_axis_height,
@@ -1899,9 +1860,6 @@
     return YAxisCanvas;
   }(_default);
 
-  function _createSuper$8(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$8(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$8() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
   var timeStrategies = {
     // 分钟 每隔 10 柱
     m: function m(item) {
@@ -1941,17 +1899,17 @@
     }
   };
 
-  var XAxisCanvas = /*#__PURE__*/function (_ChartBaseConfig) {
+  var XAxisCanvas =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(XAxisCanvas, _ChartBaseConfig);
-
-    var _super = _createSuper$8(XAxisCanvas);
 
     function XAxisCanvas() {
       var _this;
 
       classCallCheck(this, XAxisCanvas);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(XAxisCanvas).call(this));
       var _this$$store$state = _this.$store.state,
           el = _this$$store$state.el,
           x_axis_height = _this$$store$state.x_axis_height,
@@ -2036,7 +1994,7 @@
 
 
           var timeRange = Math.trunc(interval_num * 10 / current_scale);
-          timeRange = Math.ceil(timeRange / 5) * 5;
+          timeRange = Math.ceil(timeRange / 5) * 5; // 分钟间隔
 
           if (!(time % timeRange)) {
             var startX = _this2.$decimal('+', item.x, Math.ceil(column_width / 2));
@@ -2067,21 +2025,17 @@
     return XAxisCanvas;
   }(_default);
 
-  function _createSuper$9(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$9(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$9() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var Volume = /*#__PURE__*/function (_ChartBaseConfig) {
+  var Volume =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(Volume, _ChartBaseConfig);
-
-    var _super = _createSuper$9(Volume);
 
     function Volume() {
       var _this;
 
       classCallCheck(this, Volume);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(Volume).call(this));
       var _this$$store$state = _this.$store.state,
           el = _this$$store$state.el,
           x_axis_height = _this$$store$state.x_axis_height,
@@ -2219,11 +2173,9 @@
     return Volume;
   }(_default);
 
-  function _createSuper$a(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$a(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$a() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var GenerateSpan = /*#__PURE__*/function () {
+  var GenerateSpan =
+  /*#__PURE__*/
+  function () {
     function GenerateSpan($Od, _ref) {
       var _ref$data = _ref.data,
           data = _ref$data === void 0 ? 0 : _ref$data,
@@ -2249,17 +2201,17 @@
     return GenerateSpan;
   }();
 
-  var Dashboard = /*#__PURE__*/function (_ChartBaseConfig) {
+  var Dashboard =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(Dashboard, _ChartBaseConfig);
-
-    var _super = _createSuper$a(Dashboard);
 
     function Dashboard() {
       var _this;
 
       classCallCheck(this, Dashboard);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(Dashboard).call(this));
       _this.dashboardWrapper = _this.$Od.$createElement('div');
 
       _this.$Od.$setElementAttribute(_this.dashboardWrapper, 'id', 'dashboard-wrapper');
@@ -2277,17 +2229,18 @@
 
       _this.dashboardWrapper.appendChild(_this.spanWrapper);
 
+      var language = _this.$store.state.language;
       _this.openSpan = new GenerateSpan(_this.$Od, {
-        html: '开'
+        html: language.dashboard.open
       });
       _this.highSpan = new GenerateSpan(_this.$Od, {
-        html: '高'
+        html: language.dashboard.high
       });
       _this.lowSpan = new GenerateSpan(_this.$Od, {
-        html: '低'
+        html: language.dashboard.low
       });
       _this.closeSpan = new GenerateSpan(_this.$Od, {
-        html: '收'
+        html: language.dashboard.close
       });
       _this.volSpan = new GenerateSpan(_this.$Od, {
         html: 'Vol'
@@ -2397,27 +2350,33 @@
           });
         }
       }
+    }, {
+      key: "setDashboardLang",
+      value: function setDashboardLang() {
+        var language = this.$store.state.language;
+        this.openSpan.html = language.dashboard.open;
+        this.highSpan.html = language.dashboard.high;
+        this.lowSpan.html = language.dashboard.low;
+        this.closeSpan.html = language.dashboard.close;
+      }
     }]);
 
     return Dashboard;
   }(_default);
 
-  function _createSuper$b(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$b(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$b() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
   var regK = /0{3}$/;
 
-  var VolYAxis = /*#__PURE__*/function (_ChartBaseConfig) {
+  var VolYAxis =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(VolYAxis, _ChartBaseConfig);
-
-    var _super = _createSuper$b(VolYAxis);
 
     function VolYAxis() {
       var _this;
 
       classCallCheck(this, VolYAxis);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(VolYAxis).call(this));
       var _this$$store$state = _this.$store.state,
           el = _this$$store$state.el,
           x_axis_height = _this$$store$state.x_axis_height,
@@ -2592,23 +2551,21 @@
     }
   };
 
-  function _createSuper$c(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$c(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$c() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var IntervalToolBar = /*#__PURE__*/function (_ChartBaseConfig) {
+  var IntervalToolBar =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(IntervalToolBar, _ChartBaseConfig);
-
-    var _super = _createSuper$c(IntervalToolBar);
 
     function IntervalToolBar() {
       var _this;
 
       classCallCheck(this, IntervalToolBar);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(IntervalToolBar).call(this));
       _this.c = _this.$Od.$createElement('div');
       _this.throttleTimer = null;
+      _this.timeSharingBtn = null; // 分时按钮
+
       _this.cacheChartType = _this.$store.state.chart_type;
 
       _this.$Od.$setElementAttribute(_this.c, 'id', 'interval_tool_bar');
@@ -2718,10 +2675,11 @@
         var _this$$store$state2 = this.$store.state,
             user_config = _this$$store$state2.user_config,
             chart_instance = _this$$store$state2.chart_instance,
-            loadingNode = _this$$store$state2.loadingNode;
+            loadingNode = _this$$store$state2.loadingNode,
+            language = _this$$store$state2.language;
         var deedfeeds = user_config.deedfeeds;
-        var button = this.$Od.$createElement('button');
-        button.innerText = '分时';
+        var button = this.timeSharingBtn = this.$Od.$createElement('button');
+        button.innerText = language.intervalToolBar.timeSharing;
         this.$Od.$setElementAttribute(button, 'class', 'interval-item');
         this.$Od.$setElementAttribute(button, 'data-interval-item', 'time-sharing');
 
@@ -2748,26 +2706,27 @@
 
         this.c.appendChild(button);
       }
+    }, {
+      key: "setIntervalToolBarLang",
+      value: function setIntervalToolBarLang() {
+        this.timeSharingBtn.innerText = this.$store.state.language.intervalToolBar.timeSharing;
+      }
     }]);
 
     return IntervalToolBar;
   }(_default);
 
-  function _createSuper$d(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$d(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
-
-  function _isNativeReflectConstruct$d() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-  var BottomRightBlock = /*#__PURE__*/function (_ChartBaseConfig) {
+  var BottomRightBlock =
+  /*#__PURE__*/
+  function (_ChartBaseConfig) {
     inherits(BottomRightBlock, _ChartBaseConfig);
-
-    var _super = _createSuper$d(BottomRightBlock);
 
     function BottomRightBlock() {
       var _this;
 
       classCallCheck(this, BottomRightBlock);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(BottomRightBlock).call(this));
       _this.c = _this.$Od.$createElement('canvas');
       _this.c.width = _this._handleDevicePixelRatio({
         value: _this.$store.state.y_axis_width
@@ -2829,9 +2788,34 @@
     return BottomRightBlock;
   }(_default);
 
-  function _createSuper$e(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$e(); return function () { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+  var zhCN = {
+    intervalToolBar: {
+      timeSharing: '分时'
+    },
+    dashboard: {
+      open: '开',
+      high: '高',
+      low: '低',
+      close: '收'
+    }
+  };
 
-  function _isNativeReflectConstruct$e() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+  var enUS = {
+    intervalToolBar: {
+      timeSharing: 'Time'
+    },
+    dashboard: {
+      open: 'O',
+      high: 'H',
+      low: 'L',
+      close: 'C'
+    }
+  };
+
+  var languages = {
+    zhCN: zhCN,
+    enUS: enUS
+  }; // 创建最外层节点
 
   function VyChartNode($Od, container, state) {
     var vyChart = $Od.$createElement('div');
@@ -2872,10 +2856,10 @@
    */
 
 
-  var Chart = /*#__PURE__*/function (_DrawView) {
+  var Chart =
+  /*#__PURE__*/
+  function (_DrawView) {
     inherits(Chart, _DrawView);
-
-    var _super = _createSuper$e(Chart);
 
     /* chart_container */
     function Chart() {
@@ -2883,7 +2867,7 @@
 
       classCallCheck(this, Chart);
 
-      _this = _super.call(this);
+      _this = possibleConstructorReturn(this, getPrototypeOf(Chart).call(this));
       _this.customChart = null;
       return _this;
     } // 启动图表
@@ -2898,7 +2882,9 @@
             customChart = userConfig.customChart,
             _userConfig$showInter = userConfig.showIntervalToolbar,
             showIntervalToolbar = _userConfig$showInter === void 0 ? true : _userConfig$showInter,
-            customLoadingEl = userConfig.customLoadingEl;
+            customLoadingEl = userConfig.customLoadingEl,
+            _userConfig$lang = userConfig.lang,
+            lang = _userConfig$lang === void 0 ? 'zhCN' : _userConfig$lang;
         this.$store.commit('user_config', userConfig);
         this.customChart = customChart;
 
@@ -2906,6 +2892,7 @@
 
         this.$store.commit('deedfeeds', deedfeeds);
         this.$store.commit('current_interval', defaultInterval);
+        this.$store.commit('language', languages[lang]);
         /* init loading */
 
         if (customLoadingEl) {
@@ -3042,6 +3029,14 @@
         this.$store.commit('theme', this.THEME[theme]);
         this.$watcher.emit(CONSTANTS.WATCHER_EVENT.THEME_SWITCHED, theme);
         this.initHistoryData(this.$store.state.all_kline_data);
+      } // 切换语言
+
+    }, {
+      key: "switchLang",
+      value: function switchLang(lang) {
+        this.$store.commit('language', languages[lang]);
+        this.intervalToolBarInstance.setIntervalToolBarLang();
+        this.Dashboard.setDashboardLang();
       }
     }]);
 
@@ -3050,7 +3045,6 @@
 
   var chartInstance = new Chart();
   chartInstance.$store.commit('chart_instance', chartInstance);
-  window.vyChart = chartInstance;
 
   return chartInstance;
 

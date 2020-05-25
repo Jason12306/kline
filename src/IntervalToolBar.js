@@ -9,6 +9,7 @@ class IntervalToolBar extends ChartBaseConfig {
     super()
     this.c = this.$Od.$createElement('div')
     this.throttleTimer = null
+    this.timeSharingBtn = null // 分时按钮
     this.cacheChartType = this.$store.state.chart_type
     this.$Od.$setElementAttribute(this.c, 'id', 'interval_tool_bar')
     this.$Od.$setElementAttribute(this.c, 'style', {
@@ -73,10 +74,12 @@ class IntervalToolBar extends ChartBaseConfig {
 
   /* 创建分时按钮 */
   createTimeShareBtn() {
-    let { user_config, chart_instance, loadingNode } = this.$store.state
+    let { user_config, chart_instance, loadingNode, language } = this.$store.state
+
     let { deedfeeds } = user_config
-    let button = this.$Od.$createElement('button')
-    button.innerText = '分时'
+    let button = this.timeSharingBtn = this.$Od.$createElement('button')
+
+    button.innerText = language.intervalToolBar.timeSharing
     this.$Od.$setElementAttribute(button, 'class', 'interval-item')
     this.$Od.$setElementAttribute(button, 'data-interval-item', 'time-sharing')
 
@@ -92,6 +95,10 @@ class IntervalToolBar extends ChartBaseConfig {
     }
 
     this.c.appendChild(button)
+  }
+
+  setIntervalToolBarLang() {
+    this.timeSharingBtn.innerText = this.$store.state.language.intervalToolBar.timeSharing
   }
 }
 

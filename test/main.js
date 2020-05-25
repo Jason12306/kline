@@ -30,15 +30,12 @@ async function initOnReady() {
       default_fall_color: '#ef5350'
     },
     chartType: 'EMPTY_KLINE',
+    lang: 'zhCN',
     // customLoadingEl: customLoading,
     onTimeIntervalChanged: interval => {
       console.log("interval", interval);
     }
   })
-  /* let select = document.getElementById('currency')
-  select.onchange = function (e) {
-    deedfeeds.switchCurrency(e.target.value)
-  } */
 }
 
 window.addEventListener('DOMContentLoaded', initOnReady, false);

@@ -29,6 +29,7 @@
 	- `customLoadingEl`  自定义`loading` `type: HTMLElement`， 可选，样式需设置为绝对定位，宽高100%；
 	- `chartType` 图表类型 `type: String`， 可选 `KLINE | EMPTY_KLINE`，默认 `KLINE`；
 	- `showIntervalToolbar` 是否显示时间粒度条 `type: Boolean` 可选，默认 `true`；
+	- `lang` 语言 `type: String`，可选 `zhCN | enUS`，默认 `zhCN`；
 	- `onTimeIntervalChanged` 时间粒度切换时触发该事件，参数为时间粒度 `type: Function`，可选。
 
 ## 详细配置
@@ -67,9 +68,9 @@
 		}  
 
 ## 实例方法
-1. `switchChartType` 切换图表类型，`type：String` 可选值：`KLINE` | `EMPTY_KLINE`
-2. `switchTheme` 切换主题，`type：String` 可选值：`light` | `dark`
-
+1. `switchChartType` 切换图表类型，`paramType：String` 可选值：`KLINE` | `EMPTY_KLINE`
+2. `switchTheme` 切换主题，`paramType：String` 可选值：`light` | `dark`
+3. `switchLang` 切换语言，`paramType：String` 可选值：`zhCN` | `enUS`
 ## 兼容性
 主流浏览器
 
@@ -92,5 +93,5 @@ Copyright (c) 2020 Vanyi0924
 
 ## 开发中  
 - [ ] x，y轴刻度优化
-- [ ] 国际化
+- [x] 国际化
 - [ ] 自定义主题（如果急需自定义可到`/src/config/theme`中修改或新增）
